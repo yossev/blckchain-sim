@@ -3,8 +3,9 @@
 #include "block.h"
 #include "transaction.h"
 
-Blockchain::Blockchain() {
-    difficulty = 3;
+Blockchain::Blockchain(Config config) {
+    difficulty = config.difficulty;
+    maxPeers = config.maxPeers;
     chain.emplace_back(Block(0, "Genesis Block")); // Create Gen Block once chain is on
     std::vector<Transaction> transactionPool; // Transaction pool resides in blockchain
 }
@@ -24,6 +25,7 @@ Block Blockchain::getAtIndex(int index){
 
 
 // Chain Validation With Hash Value Validation
+
 bool Blockchain::isChainValid(){
     for (uint32_t i = 1; i < chain.size(); i++){
         Block currentBlock = chain[i];

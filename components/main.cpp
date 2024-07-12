@@ -5,14 +5,8 @@
 
 
 int main(){
-    Blockchain myBlockchain;
-
-    std::cout << "Mining block 1..." << std::endl;
-    myBlockchain.addBlock(Block(1, "Transaction Data 1"));
-
-    std::cout << "Mining block 2..." << std::endl;
-    myBlockchain.addBlock(Block(2, "Transaction Data 2"));
-
+    Blockchain myBlockchain; // create a new blockchain with the Genisis Block
+    std::cout << "Test" + myBlockchain.getLastBlock().getHash() << std::endl;
 
     return 0;
 }

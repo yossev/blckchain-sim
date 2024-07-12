@@ -2,10 +2,11 @@
 #define BLOCKCHAIN_H
 
 #include "block.h"
+#include "config.h"
 #include <vector>
 class Blockchain {
 public:
-    Blockchain(); // constructor
+    Blockchain(Config config); // constructors
     void addBlock(Block newBlock);
     Block getLastBlock();
     Block getAtIndex(int index);
@@ -14,9 +15,8 @@ public:
 private:
     // Blockchain difficulty is set automatically by the Blockchain network
     uint32_t difficulty;
-    std::vector<Block> chain;
-
-    
+    uint32_t maxPeers;
+    std::vector<Block> chain;   
 };
 
 
